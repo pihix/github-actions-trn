@@ -8,6 +8,9 @@ jobs:
 
         #Steps are runing in series
         steps:
+        - name: Checkout Step #a fundamental component used to clone a repository into the workflow's runner
+          uses: actions/checkout@v4
+
         - name: Welcome message
           run: echo "My first GitHub Actions"
 
