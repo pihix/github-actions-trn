@@ -6,7 +6,11 @@ on:
 
 jobs:
     build_job_1:
-        runs-on: ubuntu-latest
+        strategy:
+          matrix:
+            os: [ubuntu-latest, windows-latest]
+        runs-on: ${{ matrix.os }}
+
         steps:
         - name: Install Cowsay Program
           run: sudo apt-get install cowsay -y
