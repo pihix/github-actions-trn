@@ -11,17 +11,22 @@ jobs:
         - name: Checkout Repo #a fundamental component used to clone a repository into the workflow's runner
           uses: actions/checkout@v4
 
-        - name: Install Cowsay Program
-          run: sudo apt-get install cowsay -y
-
-        - name: Execute Cowsay CMD
-          run: cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
-
-        - name: Test File Exists
-          run: grep -i "dragon" dragon.txt
-
-        - name: Read file
-          run: cat dragon.txt
-
-        - name: Checkout Repo file
+        - name: List Repo files
           run: ls -ltra
+
+        - name: Executing Shell Script
+          run: |
+            chmod +x ascii-script.sh
+            ./ascii-script.sh
+
+        # - name: Execute Cowsay CMD
+        #   run: cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
+
+        # - name: Test File Exists
+        #   run: grep -i "dragon" dragon.txt
+
+        # - name: Read file
+        #   run: cat dragon.txt
+
+        # - name: Checkout Repo file
+        #   run: ls -ltra
